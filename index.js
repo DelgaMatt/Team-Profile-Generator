@@ -10,7 +10,70 @@
 // THEN I exit the application, and the HTML is generated
 
 //Packages
+const emailValidator = require("email-validator")
 const Inquirer = require("inquirer");
 const fs = require("fs");
 
-const questions = []
+//Internal Modules
+const Employee = require("./lib/Employee");
+const Engineer = require("./lib/Engineer");
+const Intern = require("./lib/Intern");
+const Manager = require("./lib/Manager");
+
+//Employee array
+const employeeArray = [];
+
+const addManager = [
+    {
+        type: `input`,
+        name: `managerName`,
+        message: `What is your manager's name?`,
+        validate: nameInput => {
+            if (nameInput) {
+                return true;
+            } else {
+                console.log(`Please enter the manager's name.`);
+                return false;
+            }
+        }
+    },
+    {
+        type: `input`,
+        name: `managerId`,
+        message: `What is your manager's employee ID?`,
+        validate: nameInput => {
+            if (NaN(nameInput)) {
+                console.log("Please enter a valid manager ID.");
+                return false;
+            } else {
+                return true;
+            }
+        }
+    },
+    {
+        type: `input`,
+        name: `managerEmail`,
+        message: `What is your manager's email address?`,
+        validate: email => {
+            if (emailValidator.validate(email)) {
+                return true;
+            } else {
+                console.log(`Please enter a valid email address.`)
+                return false;
+            }
+        }
+    },
+    {
+        type: `input`,
+        name: `managerOffice`,
+        message: `What is your manager's office number?`,
+        validate: nameInput => {
+            if (NaN(nameInput)) {
+                console.log(`Please enter a valid office number.`);
+                return false;
+            } else {
+                return true;
+            }
+        }
+    },
+];
