@@ -3,8 +3,9 @@ const teamArrayCards = [];
 
 //Manager card template
 const generateManager = (manager) => {
-    return `<div class="card bg-secondary m-2">
+    return `<div class="shadow p-3 mb-5 bg-white rounded card m-2 text-center">
         <h3 class="card-header">${manager.name}</h3>
+        <h6 class="card-header">${manager.getRole()}</h6>
         <ul class="card-body list-unstyled text-center">
             <li id="id">ID: ${manager.id}</li>
             <li id="email">Email: <a href="mailto: ${manager.email}">${manager.email}</a>
@@ -15,20 +16,22 @@ const generateManager = (manager) => {
 
 //Engineer card template
 const generateEngineer = (engineer) => {
-    return `<div class="card bg-secondary m-2">
+    return `<div class="shadow p-3 mb-5 bg-white rounded card m-2 text-center">
         <h3 class="card-header">${engineer.name}</h3>
+        <h6 class="card-header">${engineer.getRole()}</h6>
         <ul class="card-body list-unstyled text-center">
             <li id="id">ID: ${engineer.id}</li>
-            <li id="email">Email: <a href="mailto: ${engineer.email}">${enginner.email}</a>
-            <li id="github">Github: <a href="https://github.com/${engineer.github}" target="_blank" rel="noopener noreferrer">${enginner.github}</a></li>
+            <li id="email">Email: <a href="mailto: ${engineer.email}">${engineer.email}</a>
+            <li id="github">Github: <a href="https://github.com/${engineer.github}" target="_blank" rel="noopener noreferrer">${engineer.github}</a></li>
         </ul>
     </div>`
 };
 
 //Intern card template
 const generateIntern = (intern) => {
-    return `<div class="card bg-secondary m-2">
+    return `<div class="shadow p-3 mb-5 bg-white rounded card m-2 text-center">
         <h3 class="card-header">${intern.name}</h3>
+        <h6 class="card-header">${intern.getRole()}</h6>
         <ul class="card-body list-unstyled text-center">
             <li id="id">ID: ${intern.id}</li>
             <li id="email">Email: <a href="mailto: ${intern.email}">${intern.email}</a>
@@ -75,8 +78,8 @@ const generateHTML = () => {
         </header>
 
         <!-- container for class cards -->
-        <main class="d-flex container justify-content-center border border-primary ">
-            <div class="row">
+        <main class="d-flex container justify-content-center align-self-center">
+        <div class="row justify-content-center">
             ${teamArrayCards.join("\n")}
             </div>
         </main>
