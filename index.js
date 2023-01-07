@@ -13,6 +13,7 @@
 const emailValidator = require("email-validator");
 const Inquirer = require("inquirer");
 const fs = require("fs");
+const template = require("./src/template.js");
 
 //Internal Modules
 const Employee = require("./lib/Employee");
@@ -32,8 +33,8 @@ const addEmployee = () => {
             message: `Would you like to:`,
             choices: [`Add a Manager`, `Add an Engineer`, `Add an Intern`, `Finish building my team`]
         }
-    ]).then(answers => {
-        switch (answers) {
+    ]).then(userInput => {
+        switch (userInput.employee) {
             case `Add a Manager`:
                 addManager();
                 break;
@@ -70,7 +71,7 @@ const addManager = () => {
             name: `managerId`,
             message: `What is your manager's employee ID?`,
             validate: nameInput => {
-                if (NaN(nameInput)) {
+                if (!nameInput) {
                     console.log("Please enter a valid manager ID.");
                     return false;
                 } else {
@@ -96,7 +97,7 @@ const addManager = () => {
             name: `managerOffice`,
             message: `What is your manager's office number?`,
             validate: nameInput => {
-                if (NaN(nameInput)) {
+                if (!nameInput) {
                     console.log(`Please enter a valid office number.`);
                     return false;
                 } else {
@@ -132,7 +133,7 @@ const addEngineer = () => {
             name: `engineerId`,
             message: `What is your Engineer's employee ID?`,
             validate: nameInput => {
-                if (NaN(nameInput)) {
+                if (!nameInput) {
                     console.log("Please enter a valid employee ID.");
                     return false;
                 } else {
@@ -158,11 +159,11 @@ const addEngineer = () => {
             name: `engineerGithub`,
             message: `What is your Engineer's Github username?`,
             validate: nameInput => {
-                if (nameInput) {
-                    return true;
-                } else {
+                if (!nameInput) {
                     console.log(`Please enter a Github username.`)
                     return false;
+                } else {
+                    return true;
                 }
             }
         },
@@ -194,7 +195,7 @@ const addIntern = () => {
             name: `internId`,
             message: `What is your Intern's employee ID?`,
             validate: nameInput => {
-                if (NaN(nameInput)) {
+                if (!nameInput) {
                     console.log("Please enter a valid manager ID.");
                     return false;
                 } else {
@@ -220,11 +221,11 @@ const addIntern = () => {
             name: `internSchool`,
             message: `What school is your Intern attending?`,
             validate: nameInput => {
-                if (nameInput) {
-                    return true;
-                } else {
+                if (!nameInput) {
                     console.log(`Please enter a valid institution.`)
                     return false;
+                } else {
+                    return true;
                 }
             }
         },
@@ -238,8 +239,9 @@ const addIntern = () => {
 
 //init function to write html document
 const init = () => {
-    
-
-}
+    fs.writeFile(`teamProfile.html`, template(teamArray), (err) => {
+        err ? console.error(err) : console.log('Your team profile has been generated!')
+    })
+};
 
 addManager();
