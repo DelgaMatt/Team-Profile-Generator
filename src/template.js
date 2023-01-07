@@ -3,22 +3,22 @@ const teamArrayCards = [];
 
 //Manager card template
 const generateManager = (manager) => {
-    `<div class="card bg-secondary m-2">
+    return `<div class="card bg-secondary m-2">
         <h3 class="card-header">${manager.name}</h3>
         <ul class="card-body list-unstyled text-center">
-            <li id="id">${manager.id}</li>
+            <li id="id">ID: ${manager.id}</li>
             <li id="email">Email: <a href="mailto: ${manager.email}">${manager.email}</a>
-            <li id="officeNumber">${manager.officeNumber}</li>
+            <li id="officeNumber">Office Number: ${manager.officeNumber}</li>
         </ul>
     </div>`
 };
 
 //Engineer card template
 const generateEngineer = (engineer) => {
-    `<div class="card bg-secondary m-2">
+    return `<div class="card bg-secondary m-2">
         <h3 class="card-header">${engineer.name}</h3>
         <ul class="card-body list-unstyled text-center">
-            <li id="id">${engineer.id}</li>
+            <li id="id">ID: ${engineer.id}</li>
             <li id="email">Email: <a href="mailto: ${engineer.email}">${enginner.email}</a>
             <li id="github">Github: <a href="https://github.com/${engineer.github}" target="_blank" rel="noopener noreferrer">${enginner.github}</a></li>
         </ul>
@@ -27,23 +27,38 @@ const generateEngineer = (engineer) => {
 
 //Intern card template
 const generateIntern = (intern) => {
-    `<div class="card bg-secondary m-2">
+    return `<div class="card bg-secondary m-2">
         <h3 class="card-header">${intern.name}</h3>
         <ul class="card-body list-unstyled text-center">
-            <li id="id">${intern.id}</li>
+            <li id="id">ID: ${intern.id}</li>
             <li id="email">Email: <a href="mailto: ${intern.email}">${intern.email}</a>
-            <li id="school">${intern.school}</li>
+            <li id="school">Education: ${intern.school}</li>
         </ul>
     </div>`
 };
 
-const generateTeamCards = () => {
+const generateTeamCards = (teamArray) => {
+    for (let index = 0; index < teamArray.length; index++) {
+        let employee = teamArray[index];
 
+        if (employee.getRole() === "Manager") {
+            let card = generateManager(employee);
+            teamArrayCards.push(card);
+        } else if (employee.getRole() === `Engineer`){
+            let card = generateEngineer(employee);
+            teamArrayCards.push(card);
+        } else if (employee.getRole() === `Intern`) {
+            let card = generateIntern(employee);
+            teamArrayCards.push(card);
+        }
+    }
+    //return everything the generateHTML will return
+    return generateHTML();
 };
 
 //HTML page template
 const generateHTML = () => {
-    `<!DOCTYPE html>
+    return `<!DOCTYPE html>
     <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -62,10 +77,12 @@ const generateHTML = () => {
         <!-- container for class cards -->
         <main class="d-flex container justify-content-center border border-primary ">
             <div class="row">
-            ${teamArrayCards}
+            ${teamArrayCards.join("\n")}
             </div>
         </main>
     </body>
 
     </html>`
 };
+
+module.exports = generateTeamCards;
