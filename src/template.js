@@ -3,7 +3,7 @@ const teamArrayCards = [];
 
 //Manager card template
 const generateManager = (manager) => {
-    return `<div class="card shadow mb-5 bg-white rounded card text-center">
+    return `<div class="card shadow m-2 bg-white rounded card text-center">
         <div class="card-header p-4">
             <h3>${manager.name}</h3>
             <h6>${manager.getRole()} <i class="fa fa-coffee"></i></h6>
@@ -18,7 +18,7 @@ const generateManager = (manager) => {
 
 //Engineer card template
 const generateEngineer = (engineer) => {
-    return `<div class="card shadow mb-5 bg-white rounded card text-center">
+    return `<div class="card shadow m-2 bg-white rounded card text-center">
         <div class="card-header p-4">
             <h3>${engineer.name}</h3>
             <h6>${engineer.getRole()} <i class="fa fa-desktop"></i></h6>
@@ -33,7 +33,7 @@ const generateEngineer = (engineer) => {
 
 //Intern card template
 const generateIntern = (intern) => {
-    return `<div class="card shadow mb-5 bg-white rounded card text-center">
+    return `<div class="card shadow m-2 bg-white rounded card text-center">
         <div class="card-header p-4">
             <h3>${intern.name}</h3>
             <h6>${intern.getRole()} <i class="fa fa-book"></i></h6>
@@ -91,7 +91,6 @@ const generateHTML = () => {
             </div>
         </main>
     </body>
-
     </html>`
 };
 
