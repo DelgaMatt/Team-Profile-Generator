@@ -3,9 +3,11 @@ const teamArrayCards = [];
 
 //Manager card template
 const generateManager = (manager) => {
-    return `<div class="shadow p-3 mb-5 bg-white rounded card m-2 text-center">
-        <h3 class="card-header">${manager.name}</h3>
-        <h6 class="card-header">${manager.getRole()}</h6>
+    return `<div class="card shadow mb-5 bg-white rounded card text-center">
+        <div class="card-header p-4">
+            <h3>${manager.name}</h3>
+            <h6>${manager.getRole()} <i class="fa fa-coffee"></i></h6>
+        </div>
         <ul class="card-body list-unstyled text-center">
             <li id="id">ID: ${manager.id}</li>
             <li id="email">Email: <a href="mailto: ${manager.email}">${manager.email}</a>
@@ -16,9 +18,11 @@ const generateManager = (manager) => {
 
 //Engineer card template
 const generateEngineer = (engineer) => {
-    return `<div class="shadow p-3 mb-5 bg-white rounded card m-2 text-center">
-        <h3 class="card-header">${engineer.name}</h3>
-        <h6 class="card-header">${engineer.getRole()}</h6>
+    return `<div class="card shadow mb-5 bg-white rounded card text-center">
+        <div class="card-header p-4">
+            <h3>${engineer.name}</h3>
+            <h6>${engineer.getRole()} <i class="fa fa-desktop"></i></h6>
+        </div>
         <ul class="card-body list-unstyled text-center">
             <li id="id">ID: ${engineer.id}</li>
             <li id="email">Email: <a href="mailto: ${engineer.email}">${engineer.email}</a>
@@ -29,9 +33,11 @@ const generateEngineer = (engineer) => {
 
 //Intern card template
 const generateIntern = (intern) => {
-    return `<div class="shadow p-3 mb-5 bg-white rounded card m-2 text-center">
-        <h3 class="card-header">${intern.name}</h3>
-        <h6 class="card-header">${intern.getRole()}</h6>
+    return `<div class="card shadow mb-5 bg-white rounded card text-center">
+        <div class="card-header p-4">
+            <h3>${intern.name}</h3>
+            <h6>${intern.getRole()} <i class="fa fa-book"></i></h6>
+        </div>
         <ul class="card-body list-unstyled text-center">
             <li id="id">ID: ${intern.id}</li>
             <li id="email">Email: <a href="mailto: ${intern.email}">${intern.email}</a>
@@ -68,7 +74,8 @@ const generateHTML = () => {
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <title>Document</title>
     </head>
 
