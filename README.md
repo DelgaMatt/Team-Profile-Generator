@@ -13,6 +13,10 @@
   To install this application, clone the repository onto your local machine
   ## Usage
   To use this application after installation, open the ingegrated terminal on the index.js file and run 'node index.js'. Follow the prompt and answer the questions. When you are finished adding members to your team profile, select 'Finish building my team'. An HTML file will be created in the 'dist' folder that displays cards for each person on the team.
+
+  ![Team Profile Screenshot](https://user-images.githubusercontent.com/115049801/211676429-a4359d33-4b29-4053-ba60-e7234c1ac189.png)
+
+  https://user-images.githubusercontent.com/115049801/211676120-82085a13-ec0c-45e9-9f1a-03c5aa795ad8.mp4
   ## License
   This app is covered under the [MIT License](https://opensource.org/licenses/MIT)<br>
   Copyright (C) Matthew Delgado 2023

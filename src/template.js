@@ -48,6 +48,7 @@ const generateIntern = (intern) => {
 
 const generateTeamCards = (teamArray) => {
     for (let index = 0; index < teamArray.length; index++) {
+        
         let employee = teamArray[index];
 
         if (employee.getRole() === "Manager") {
